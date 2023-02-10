@@ -1,7 +1,6 @@
 body {
   font-family: "Latto", sans-serif;
   font-weight: 400;
-  /* font-size: 16px; */
   font-size: 1.6rem;
   line-height: 1.7;
   color: $color-grey-dark;
@@ -42,5 +41,42 @@ body {
     animation: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  // how to make text gradient
+  background-image: linear-gradient(to right,
+      $color-primary-light,
+      $color-primary-dark);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  transition: all .2s;
+  // such a small px will not matter and will translate back to 2px
+  // but to get into a habit of using rem I will use rem.
+  letter-spacing: .2rem;
+  
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragragh {
+  font-size: 1.6rem;
+  &:not(:last-child) {
+    margin-bottom: 3rem;
   }
 }
