@@ -11,14 +11,50 @@
 
 html {
   /* dont make a root font size a set pixel */
-  /* set to an % */
-  /* 10px = 62.25% for a browser with default 16px */
-
   /* note: you can not use rems for internet explorer */
-  font-size: 62.25%;
+  
+  font-size: 62.25%; // 1rem = 10px; 10px/16 = 62.25%
   // ^This defines what 1 rem is
+
+
+  // also wrong you can use mixins!
+  // @media (max-width: 600px) {
+  //   font-size: 50%;
+  // }
+
+  // remember that code reads top to bottom
+  @include respond(tab-land) { // width < 1200?
+    font-size: 56.25%; // 1 rem = 9px, 8/16 = 56.25%
+  }
+  @include respond(tab-port) { // width < 900
+    font-size: 50%; // 1 rem = 8px, 8/16 = 50%
+  }
+
+
+
+  @include respond(big-desktop) { // width > 1800?
+    font-size: 75%; // 1rem = 20px, 12/16 = 75%
+  }
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }
+
+
+// wrong way (better way with sass)
+
+// @media (max-width: 600px) {
+//   html {
+
+//   }
+
+//   body {
+
+//   }
+// }
